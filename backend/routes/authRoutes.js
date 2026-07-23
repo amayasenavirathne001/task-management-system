@@ -1,9 +1,14 @@
 const express = require("express");
 const router = express.Router();
 
-const { login } = require("../controllers/authController");
+const {
+  login,
+  registerAdmin,
+} = require("../controllers/authController");
 
-// POST /api/auth/login
 router.post("/login", login);
+
+// Run once only
+router.get("/create-admin", registerAdmin);
 
 module.exports = router;
